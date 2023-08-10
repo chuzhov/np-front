@@ -1,59 +1,53 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import css from './AddContact.module.css';
+import css from './AddPackage.module.css';
 import sprite from '../../img/sprites.svg';
-import { addContactOp } from 'redux/operations/packageOps';
+import { addPackageOp } from 'redux/operations/packageOps';
+import { getPackages } from 'redux/selectors/packagesSelectors';
 
-const AddContact = () => {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
-  const tenders = useSelector(state => state.phonebook.tenders.items);
+const AddPackage = () => {
+  const [trackingNumber, setTrackingNumber] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const packages = useSelector(getPackages);
 
   const dispatch = useDispatch();
 
   const onSubmitHandler = event => {
     event.preventDefault();
 
-    if (tenders.find(contact => contact.name === name)) {
-      alert('This contact is already exist in your contact list');
-      return null;
-    }
-    const isNumberSaved = tenders.find(contact => contact.number === number);
-    if (isNumberSaved) {
-      alert(
-        `This number is already saved in your contact list to ${isNumberSaved.name}`
-      );
+    if (packages.find(pack => pack._tracking_number === trackingNumber)) {
+      alert('This package is already exist in your contact list');
       return null;
     }
 
-    dispatch(addContactOp({ name, number, isFavorite: false }));
+    dispatch(addPackageOp({ trackingNumber, phoneNumber }));
 
-    setName('');
-    setNumber('');
+    setTrackingNumber('');
+    setPhoneNumber('');
   };
 
   return (
     <form className={css['form']} onSubmit={onSubmitHandler}>
       <label className={css['label']}>
-        <span> Name: </span>
+        <span> Tracking Number: </span>
         <div className={css['input-wrapper']}>
           <input
             className={css['input']}
             name="name"
             type="text"
-            value={name}
-            onChange={e => setName(e.target.value)}
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            value={trackingNumber}
+            onChange={e => setTrackingNumber(e.target.value)}
+            // pattern=/^\d{10,}$/
+            title="Tracking number may contain only digits"
             required
             // autoComplete="off"
           />
-          {name && (
+          {trackingNumber && (
             <button
               type="button"
               className={css['inline-btn']}
-              onClick={() => setName('')}
+              onClick={() => setTrackingNumber('')}
             >
               <svg className={css['svg-icon']} width="20" height="20">
                 <use href={sprite + `#icon-close`}></use>
@@ -63,23 +57,23 @@ const AddContact = () => {
         </div>
       </label>
       <label className={css['label']}>
-        <span> Number: </span>
+        <span> Phone number: </span>
         <div className={css['input-wrapper']}>
           <input
             className={css['input']}
             type="tel"
             name="number"
-            value={number}
+            value={phoneNumber}
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
-            onChange={e => setNumber(e.target.value)}
+            onChange={e => setPhoneNumber(e.target.value)}
           />
-          {number && (
+          {phoneNumber && (
             <button
               type="button"
               className={css['inline-btn']}
-              onClick={() => setNumber('')}
+              onClick={() => setPhoneNumber('')}
             >
               <svg className={css['svg-icon']} width="20" height="20">
                 <use href={sprite + `#icon-close`}></use>
@@ -97,4 +91,4 @@ const AddContact = () => {
   );
 };
 
-export default AddContact;
+export default AddPackage;

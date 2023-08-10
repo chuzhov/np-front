@@ -1,5 +1,5 @@
 import Init from './Init/Init';
-//import AddContact from './AddContact/AddContact';
+import AddPackage from './AddPackage/AddPackage';
 import PackageList from './PackageList/PackageList';
 //import Filter from './Filter/Filter';
 
@@ -12,7 +12,7 @@ const App = () => {
     >
       <Init />
       <h1>Package list</h1>
-      {/* <AddContact /> */}
+      <AddPackage />
       {/* <Filter /> */}
       <PackageList />
     </div>
