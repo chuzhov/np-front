@@ -15,7 +15,7 @@ const onRejectRoutine = (state, { payload }) => {
   state.packages.error = payload;
 };
 
-const phonebookSlice = createSlice({
+const packageManagerSlice = createSlice({
   name: 'packages',
   initialState: {
     packages: { items: [], isLoading: false, error: null },
@@ -48,7 +48,7 @@ const phonebookSlice = createSlice({
         state.packages.isLoading = false;
         state.packages.error = null;
         state.packages.items = state.packages.items.filter(
-          tender => tender._id !== id
+          tender => tender.id !== id
         );
       })
       .addCase(deleteTenderOP.rejected, onRejectRoutine)
@@ -62,5 +62,5 @@ const phonebookSlice = createSlice({
       .addCase(updateContactOp.rejected, onRejectRoutine),
 });
 
-export default phonebookSlice.reducer;
-export const { updateFilter } = phonebookSlice.actions;
+export default packageManagerSlice.reducer;
+export const { updateFilter } = packageManagerSlice.actions;

@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import phonebookReducer from './slices/phonebookSlice';
+import packageManagerReducer from './slices/packageManagerSlice';
 
 const initialState = {
-  phonebook: {
+  packageManager: {
     packages: { items: [], isLoading: false, error: null },
     filter: '',
   },
@@ -10,7 +10,7 @@ const initialState = {
 
 export const store = configureStore({
   reducer: {
-    phonebook: phonebookReducer,
+    packageManager: packageManagerReducer,
   },
   preloadedState: initialState,
 });
