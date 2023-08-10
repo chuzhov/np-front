@@ -10,18 +10,18 @@ const PackageList = () => {
   const packages = useSelector(getPackages);
   const isLoading = useSelector(getIsPackegesLoading);
 
-  const tenderItems = items => {
-    if (items.length === 0) return;
-    const tenderItems = items.map((item, index) => {
-      // In this example, we are generating a list item for each element in the dataArray
-      return (
-        <li key={index}>
-          {item?.description} {item?.unit?.name} {item?.quantity}
-        </li>
-      );
-    });
-    return tenderItems;
-  };
+  // const tenderItems = items => {
+  //   if (items.length === 0) return;
+  //   const tenderItems = items.map((item, index) => {
+  //     // In this example, we are generating a list item for each element in the dataArray
+  //     return (
+  //       <li key={index}>
+  //         {item?.description} {item?.unit?.name} {item?.quantity}
+  //       </li>
+  //     );
+  //   });
+  //   return tenderItems;
+  // };
 
   console.dir(packages);
 
