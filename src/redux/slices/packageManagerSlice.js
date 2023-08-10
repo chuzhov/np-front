@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   addPackageOp,
   fetchPackagesOP,
-  deleteTenderOP,
+  deletePackageOP,
   updateContactOp,
 } from '../operations/packageOps';
 
@@ -42,8 +42,8 @@ const packageManagerSlice = createSlice({
         state.packages.items = payload;
       })
       .addCase(fetchPackagesOP.rejected, onRejectRoutine)
-      .addCase(deleteTenderOP.pending, pendingRoutine)
-      .addCase(deleteTenderOP.fulfilled, (state, { payload }) => {
+      .addCase(deletePackageOP.pending, pendingRoutine)
+      .addCase(deletePackageOP.fulfilled, (state, { payload }) => {
         const id = payload.id;
         state.packages.isLoading = false;
         state.packages.error = null;
@@ -51,7 +51,7 @@ const packageManagerSlice = createSlice({
           tender => tender.id !== id
         );
       })
-      .addCase(deleteTenderOP.rejected, onRejectRoutine)
+      .addCase(deletePackageOP.rejected, onRejectRoutine)
       .addCase(updateContactOp.pending, pendingRoutine)
       .addCase(updateContactOp.fulfilled, (state, { payload }) => {
         const index = state.packages.items.findIndex(

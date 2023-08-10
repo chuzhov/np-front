@@ -40,7 +40,7 @@ export const fetchPackagesOP = createAsyncThunk(
   }
 );
 
-export const deleteTenderOP = createAsyncThunk(
+export const deletePackageOP = createAsyncThunk(
   'tenders/deleteContact',
   async (id, thunkAPI) => {
     try {

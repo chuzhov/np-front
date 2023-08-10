@@ -1,6 +1,6 @@
 import Init from './Init/Init';
 //import AddContact from './AddContact/AddContact';
-import PackageList from './SuspectedTenderList/PackageList';
+import PackageList from './PackageList/PackageList';
 //import Filter from './Filter/Filter';
 
 const App = () => {
