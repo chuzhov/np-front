@@ -1,7 +1,7 @@
 import Init from './Init/Init';
-import AddContact from './AddContact/AddContact';
-import ContactList from './ContactList/ContactList';
-import Filter from './Filter/Filter';
+//import AddContact from './AddContact/AddContact';
+import PackageList from './SuspectedTenderList/PackageList';
+//import Filter from './Filter/Filter';
 
 const App = () => {
   return (
@@ -11,11 +11,10 @@ const App = () => {
       }}
     >
       <Init />
-      <h1>Phonebook</h1>
-      <AddContact />
-      <h2>Contacts</h2>
-      <Filter />
-      <ContactList />
+      <h1>Package list</h1>
+      {/* <AddContact /> */}
+      {/* <Filter /> */}
+      <PackageList />
     </div>
   );
 };

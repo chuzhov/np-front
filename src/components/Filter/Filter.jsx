@@ -1,19 +1,19 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { updateFilter } from '../redux/phonebookSlice/phonebookSlice';
+import { updateFilter } from '../../redux/slices/phonebookSlice';
 
 import css from 'components/Filter/Filter.module.css';
 import sprite from '../../img/sprites.svg';
 
 const Filter = () => {
   let query = useSelector(state => state.phonebook.filter);
-  const contacts = useSelector(state => state.phonebook.contacts.items);
+  const tenders = useSelector(state => state.phonebook.tenders.items);
   const dispatch = useDispatch();
 
   return (
-    contacts.length > 0 && (
+    tenders.length > 0 && (
       <>
         <label className={css['label']}>
-          <span> Find contacts by name: </span>
+          <span> Find tenders by name: </span>
           <div className={css['filter-input__wrapper']}>
             <input
               className={css['input']}

@@ -6,12 +6,19 @@ p {
 .list {
   padding: 0;
   width: fit-content;
+  height: 350px;
+  overflow-y: scroll;
+
+  border: green 1px solid;
+  border-radius: 3px;
+
+  padding: 3px;
 }
 
 .item {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
   row-gap: 0.5rem;
 }
 

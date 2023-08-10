@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import css from './StarBtn.module.css';
 import sprite from '../../img/sprites.svg';
-import { updateContactOp } from 'components/redux/operations/phonebookOps';
+import { updateContactOp } from 'redux/operations/packageOps';
 
 const StarBtn = ({ id, isFavorite }) => {
   const dispatch = useDispatch();
