@@ -45,11 +45,14 @@ export const deletePackageOP = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const { data } = await axios.delete(`${BASE_URL}/` + id);
-      if ((data.message = 'Deleted: ')) {
+      if (data.success) {
         return { id: data.id };
       }
+      if (data.error) {
+        throw data.error;
+      }
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
