@@ -10,19 +10,6 @@ const PackageList = () => {
   const packages = useSelector(getPackages);
   const isLoading = useSelector(getIsPackegesLoading);
 
-  // const tenderItems = items => {
-  //   if (items.length === 0) return;
-  //   const tenderItems = items.map((item, index) => {
-  //     // In this example, we are generating a list item for each element in the dataArray
-  //     return (
-  //       <li key={index}>
-  //         {item?.description} {item?.unit?.name} {item?.quantity}
-  //       </li>
-  //     );
-  //   });
-  //   return tenderItems;
-  // };
-
   console.dir(packages);
 
   return isLoading ? (
@@ -32,7 +19,7 @@ const PackageList = () => {
       {packages.map(pack => (
         <li key={'li' + pack.id} className={css['item']}>
           <div>
-            <p>{pack._tracking_number}</p>
+            <p className={css['tracking-number']}>{pack._tracking_number}</p>
           </div>
           <DeleteContactBtn id={pack.id.toString()} />
         </li>

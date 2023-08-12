@@ -45,6 +45,7 @@ const packageManagerSlice = createSlice({
       .addCase(deletePackageOP.pending, pendingRoutine)
       .addCase(deletePackageOP.fulfilled, (state, { payload }) => {
         const id = payload.id;
+
         state.packages.isLoading = false;
         state.packages.error = null;
         state.packages.items = state.packages.items.filter(

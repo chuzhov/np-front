@@ -8,16 +8,16 @@ export const addPackageOp = createAsyncThunk(
   'packages/addPackage',
   async ({ trackingNumber, phoneNumber }, thunkAPI) => {
     try {
-      const response = await fetch(`${BASE_URL}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ trackingNumber, phoneNumber }),
-      });
-      return await response.json();
+      const {
+        // eslint-disable-next-line
+        data: { success, data, warnings, error },
+      } = await axios.post(`${BASE_URL}/`, { trackingNumber, phoneNumber });
+      if (!success) {
+        throw error;
+      }
+      return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );

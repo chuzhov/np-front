@@ -5,7 +5,7 @@ p {
 
 .list {
   padding: 0;
-  width: fit-content;
+  width: 300px;
   height: 350px;
   overflow-y: scroll;
 
@@ -26,18 +26,8 @@ p {
   background-color: aliceblue;
 }
 
-.name {
-  display: inline-block;
-  overflow: hidden;
-  width: 150px;
-}
-
-.phone-number {
-  display: inline-block;
-  overflow: hidden;
-  width: 190px;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  text-align: right;
-  color: darkslategrey;
+.tracking-number {
+  padding-left: 16px;
+  font-size: 16px;
+  color: darkolivegreen;
 }
