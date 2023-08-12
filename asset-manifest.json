@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/np-front/static/css/main.3a20bacc.css",
+    "main.js": "/np-front/static/js/main.527af618.js",
+    "static/media/sprites.svg": "/np-front/static/media/sprites.cd23f68860e01aff4569f3218f8780cb.svg",
+    "index.html": "/np-front/index.html",
+    "main.3a20bacc.css.map": "/np-front/static/css/main.3a20bacc.css.map",
+    "main.527af618.js.map": "/np-front/static/js/main.527af618.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3a20bacc.css",
+    "static/js/main.527af618.js"
+  ]
+}
